@@ -4,9 +4,9 @@ import (
     "context"
 )
 
-type FileUtils struct{}
+type Fileutils struct{}
 
-func (f *FileUtils) Ls(ctx context.Context, dir *Directory) (string ,error) {
+func (f *Fileutils) Ls(ctx context.Context, dir *Directory) (string ,error) {
     return dag.Container().
         From("alpine:latest").
 		WithMountedDirectory("/mnt", dir).
