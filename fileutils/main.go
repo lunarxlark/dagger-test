@@ -11,6 +11,6 @@ func (f *FileUtils) Ls(ctx context.Context, dir *Directory) (string ,error) {
         From("alpine:latest").
 		WithMountedDirectory("/mnt", dir).
 		WithWorkdir("/mnt").
-		WithExec([]string{"ls -la"}).
+		WithExec([]string{"ls", "-la"}).
 		Stdout(ctx)
 }
