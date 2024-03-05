@@ -6,11 +6,11 @@ import (
 
 type Fileutils struct{}
 
-func (f *Fileutils) Ls(ctx context.Context, dir *Directory) (string ,error) {
+func (m *Fileutils) Tree(ctx context.Context, dir *Directory) (string, error) {
 	return dag.Container().
 		From("alpine:latest").
 		WithMountedDirectory("/mnt", dir).
 		WithWorkdir("/mnt").
-		WithExec([]string{"ls"}).
+		WithExec([]string{"tree"}).
 		Stdout(ctx)
 }
